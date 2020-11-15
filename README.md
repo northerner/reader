@@ -1,24 +1,13 @@
-# README
+# Reader
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A basic RSS reader. Designed for one user.
 
-Things you may want to cover:
+Including the usual features:
 
-* Ruby version
+* Fetching feed entries
 
-* System dependencies
+* Subscribe/unsubscribe to feeds 
 
-* Configuration
+* Tag feeds 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Track when an entry has been read
