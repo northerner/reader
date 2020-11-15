@@ -1,0 +1,21 @@
+<div>
+  <h1>Entries</h1>
+
+  <p>
+    Tags:
+    <% @tags.each do |tag| %>
+      <%= link_to(tag, root_path(tag: tag)) %>
+    <% end %>
+    <strong><%= link_to("clear", root_path) %></strong>
+
+  <div class="home--grid">
+    <span>Date</span>
+    <span>Feed</span>
+    <span>Title</span>
+    <% @entries.each do |entry| %>
+      <span class=<%= "entry--read" if entry.read %>><%= entry.published_at.to_formatted_s(:short) %><%= " ✨" unless entry.read %></span>
+      <span class=<%= "entry--read" if entry.read %>><%= link_to(entry.feed.title, feeds_path(entry.feed)) %></span>
+      <span class=<%= "entry--read" if entry.read %>><%= link_to(entry.title, feed_entry_path(entry.feed, entry)) %></span>
+    <% end %>
+  </div>
+</div>

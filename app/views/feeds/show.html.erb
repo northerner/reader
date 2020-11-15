@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @feed.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @feed.title %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @feed.tags %>
+</p>
+
+  <strong>Last checked:</strong>
+  <%= @feed.last_checked %>
+</p>
+
+<p>
+  <strong>Last published entry:</strong>
+  <%= @feed.last_published_entry %>
+</p>
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
+
+<div>
+  <h1>Entries</h1>
+
+  <% @feed.entries.each do |entry| %>
+    <p><%= entry.published_at.to_formatted_s(:short) %> | <%= link_to(entry.title, feed_entry_path(@feed, entry)) %></p>
+  <% end %>
+</div>
