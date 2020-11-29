@@ -21,7 +21,7 @@ set :deploy_to, "/home/#{fetch :application}/#{fetch :application}"
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
+append :linked_files, ".env.production"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -37,3 +37,9 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+task :env do
+  on roles(:all) do
+    execute "env"
+  end
+end
